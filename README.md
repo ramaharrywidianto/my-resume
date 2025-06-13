@@ -3,7 +3,7 @@
 Halo, ini adalah CV online saya yang dibuat dengan HTML, CSS, dan ilengkapi fitur export PDF otomatis menggunakan  JavaScript.  
 
 
-🌐 **Live Preview**: [Klik di sini](https://ramaharrywidianto.github.io/my-resume/)
+🌐 **Live Preview**: [Klik di sini](https://ramaharrywidianto.github.io/my-resume/)(https://ramaharrywidianto.my.canva.site/cv)
 
 ---
 
