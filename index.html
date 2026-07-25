@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CV Rama Harry Widianto</title>
   <link rel="stylesheet" href="styles.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="script.js" defer></script>
 </head>
 <body>
   <div id="cv">
     <div class="left-column">
-      <img src="IMG_0285 RAMA HARRY WIDIANTO.jpg" alt="Foto Rama">
+      <img src="IMG_0285 RAMA HARRY WIDIANTO.jpg" alt="Foto Rama" />
       <section>
         <h2>DATA DIRI</h2>
         <ul>
-          <li><strong>Tempat/Tangga Lahir:</strong> YOGYAKARTA, 12 September 2007</li>
+          <li><strong>Tempat/Tanggal Lahir:</strong> Yogyakarta, 12 September 2007</li>
           <li><strong>Jenis Kelamin:</strong> Laki-laki</li>
           <li><strong>Kewarganegaraan:</strong> Indonesia</li>
           <li><strong>Status:</strong> Pelajar</li>
@@ -24,10 +24,10 @@
       <section>
         <h2>KONTAK</h2>
         <ul>
-          <li>📞 <a href="tel:+6283198760889">+62 831 9876 0889</a></li>
-          <li>✉️ <a href="mailto:ramaharrywidianto@gmail.com">ramaharrywidianto@gmail.com</a></li>
-          <li>📍 Bobok, Patalan, Jetis, Bantul</li>
-          <li>🌐 <a href="https://ramaharrywidianto.my.id" target="_blank">ramaharrywidianto.my.id</a></li>
+          <li>&#128222; <a href="tel:+6283198760889">+62 831 9876 0889</a></li>
+          <li>&#9993; <a href="mailto:ramaharrywidianto@gmail.com">ramaharrywidianto@gmail.com</a></li>
+          <li>&#128205; Bobok, Patalan, Jetis, Bantul</li>
+          <li>&#127760; <a href="https://ramaharrywidianto.my.id" target="_blank">ramaharrywidianto.my.id</a></li>
         </ul>
       </section>
       <section>
@@ -36,16 +36,16 @@
         <ul>
           <li>Adaptasi tim & lingkungan</li>
           <li>Debugging logika</li>
-          <li>Kreatif cari solusi teknis</li>
+          <li>Kreatif mencari solusi teknis</li>
         </ul>
         <h3>Hard Skills</h3>
         <ul>
-          <li>HTML, CSS, JS</li>
-          <li>Laravel, PHP, DB</li>
+          <li>HTML, CSS, JavaScript</li>
+          <li>Laravel, PHP, Database</li>
         </ul>
         <h3>Bahasa</h3>
         <ul>
-          <li>English (Dasar)</li>
+          <li>Inggris (Dasar)</li>
           <li>Indonesia (Aktif)</li>
         </ul>
       </section>
@@ -54,11 +54,14 @@
     <div class="right-column">
       <header>
         <h1>RAMA HARRY WIDIANTO</h1>
-        <h2>PEMOGRAMAN</h2>
+        <h2>PEMROGRAMAN</h2>
       </header>
 
       <section>
-        <h2>TENTANG SAYA</h2>Saya Rama Harry Widianto, siswa SMK N 1 Sanden jurusan Rekayasa Perangkat Lunak (RPL) dengan minat tinggi dalam pengembangan situs web, aplikasi, dan otomatisasi data. Selama belajar, saya telah menguasai berbagai bahasa pemrograman seperti HTML, CSS, JavaScript,  Laravel dan PHP. Saat ini, saya aktif mengembangkan proyek-proyek digital dan terus berusaha meningkatkan keterampilan di bidang rekayasa perangkat lunak. Disiplin, pekerja keras, dan selalu siap belajar teknologi baruSaya Rama Harry Widianto, siswa SMK N 1 Sanden jurusan RPL...</p>
+        <h2>TENTANG SAYA</h2>
+        <p>
+          Saya Rama Harry Widianto, siswa SMK N 1 Sanden jurusan Rekayasa Perangkat Lunak (RPL) dengan minat tinggi dalam pengembangan situs web, aplikasi, dan otomatisasi data. Selama belajar, saya telah menguasai berbagai bahasa pemrograman seperti HTML, CSS, JavaScript, Laravel, dan PHP. Saat ini, saya aktif mengembangkan proyek-proyek digital dan terus berusaha meningkatkan keterampilan di bidang rekayasa perangkat lunak. Saya pribadi yang disiplin, pekerja keras, dan selalu siap belajar teknologi baru.
+        </p>
       </section>
 
       <section>
@@ -72,12 +75,11 @@
 
       <section>
         <h2>PORTOFOLIO</h2>
-        <a href="http://portofolio-ramaharrywidianto.ct.ws/?i=1">Klik untuk lihat portofolio</a>
-        <p>Belum di hosting</p>
+        <a href="https://portofolio-ramaharrywidianto.ct.ws/?i=1" target="_blank">Klik untuk lihat portofolio</a>
       </section>
 
       <section>
-        <h2>PROJECT</h2>
+        <h2>PROYEK</h2>
         <ul>
           <li><strong>Website CRUD Absensi</strong> – HTML, Bootstrap, PHP, CSS, JS</li>
           <li><strong>Website Rental Mobil</strong> – HTML, Bootstrap, PHP, CSS, JS</li>
@@ -87,7 +89,9 @@
         </ul>
       </section>
     </div>
-     <button onclick="downloadPDF()">Download PDF</button>
   </div>
+
+  <!-- Tombol di luar div #cv agar tidak ikut tercetak di PDF -->
+  <button onclick="downloadPDF()" style="display: block; margin: 20px auto;">Download PDF</button>
 </body>
 </html>
