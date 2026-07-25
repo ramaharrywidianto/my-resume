@@ -1,150 +1,1063 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CV Rama Harry Widianto</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f0f0; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-    #cv { display: flex; width: 210mm; min-height: 297mm; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .left-column { width: 35%; background: #1e3a5f; color: white; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
-    .left-column img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid white; margin-bottom: 20px; }
-    .left-column h2 { font-size: 18px; margin: 20px 0 10px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 5px; }
-    .left-column ul { list-style: none; padding: 0; font-size: 14px; line-height: 1.6; }
-    .left-column li { margin-bottom: 8px; }
-    .left-column a { color: #aad4ff; text-decoration: none; }
-    .right-column { width: 65%; padding: 30px; }
-    header { margin-bottom: 25px; }
-    header h1 { font-size: 28px; color: #1e3a5f; margin-bottom: 5px; }
-    header h2 { font-size: 16px; color: #2c7be5; font-weight: normal; }
-    .right-column section { margin-bottom: 20px; }
-    .right-column h2 { font-size: 18px; color: #1e3a5f; border-bottom: 2px solid #2c7be5; padding-bottom: 5px; margin-bottom: 10px; }
-    .right-column p { font-size: 14px; line-height: 1.6; text-align: justify; }
-    .right-column ul { padding-left: 20px; font-size: 14px; line-height: 1.6; }
-    .right-column li { margin-bottom: 6px; }
-    button { padding: 10px 25px; font-size: 16px; background: #1e3a5f; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 20px 0; }
-    button:hover { background: #2c7be5; }
-    @media print { body { background: white; } }
-  </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Rama Harry Widianto | Junior Fullstack Web Developer</title>
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-dark: #0F172A;
+            --bg-dark-secondary: #1E293B;
+            --accent: #2563EB;
+            --accent-light: #38BDF8;
+            --accent-glow: rgba(37, 99, 235, 0.15);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-muted: #64748B;
+            --text-light: #94A3B8;
+            --border: #E2E8F0;
+            --border-light: #F1F5F9;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+            --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.07), 0 2px 4px rgba(15, 23, 42, 0.05);
+            --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.1), 0 4px 10px rgba(15, 23, 42, 0.06);
+            --shadow-xl: 0 20px 40px rgba(15, 23, 42, 0.12);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #E8ECF2;
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 28px 16px 60px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ── CV Container ────────────────────── */
+        .cv-container {
+            width: 100%;
+            max-width: 820px;
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl), 0 0 0 1px rgba(15, 23, 42, 0.04);
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        /* ── Print / Action Bar ─────────────── */
+        .action-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 16px 24px;
+            background: var(--bg-dark);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            flex-wrap: wrap;
+        }
+        .action-bar button {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+        .btn-print {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-print:hover {
+            background: #1d4ed8;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transform: translateY(-1px);
+        }
+        .btn-share {
+            background: transparent;
+            color: #CBD5E1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-share:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ── Header ─────────────────────────── */
+        .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 36px 36px 24px;
+            background: linear-gradient(160deg, #F8FAFC 0%, #EEF2F8 100%);
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        .header-left {
+            flex: 1;
+            min-width: 220px;
+        }
+        .header-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+        .header-title {
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.01em;
+            margin-bottom: 12px;
+            white-space: nowrap;
+        }
+        .header-contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 6px;
+        }
+        .header-contact-row a,
+        .header-contact-row span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .header-contact-row a:hover {
+            color: var(--accent);
+        }
+        .header-contact-row i {
+            width: 16px;
+            text-align: center;
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        /* QR Code */
+        .qr-wrapper {
+            flex-shrink: 0;
+            text-align: center;
+            background: #fff;
+            border-radius: var(--radius-md);
+            padding: 10px;
+            box-shadow: var(--shadow-sm);
+            border: 1.5px solid var(--border);
+            transition: var(--transition);
+        }
+        .qr-wrapper:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-light);
+        }
+        .qr-wrapper img {
+            display: block;
+            width: 90px;
+            height: 90px;
+            border-radius: 4px;
+        }
+        .qr-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 4px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        /* ── Main Body ──────────────────────── */
+        .cv-body {
+            padding: 28px 36px 36px;
+        }
+
+        /* ── Section ────────────────────────── */
+        .section {
+            margin-bottom: 26px;
+        }
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+            position: relative;
+        }
+        .section-heading i {
+            color: var(--accent);
+            font-size: 1rem;
+            width: 22px;
+            text-align: center;
+        }
+        .section-heading::after {
+            content: '';
+            flex: 1;
+            height: 1.5px;
+            background: var(--border);
+            border-radius: 1px;
+            margin-left: 6px;
+            opacity: 0.7;
+        }
+
+        /* ── About ──────────────────────────── */
+        .about-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* ── Experience Card ────────────────── */
+        .exp-card {
+            background: #F8FAFC;
+            border-radius: var(--radius-lg);
+            padding: 20px 22px;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            border-radius: 0 3px 3px 0;
+        }
+        .exp-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #dde4f0;
+        }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .exp-role {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+        .exp-company {
+            font-weight: 500;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        .exp-date {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: #fff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+            border: 1px solid var(--border);
+        }
+        .exp-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .exp-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+        .exp-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 2px;
+            top: 0;
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* ── Projects Grid ──────────────────── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .project-card {
+            background: #F8FAFC;
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: default;
+        }
+        .project-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #d0d9e8;
+            transform: translateY(-2px);
+        }
+        .project-name {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+        .project-tech {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+            margin-bottom: 5px;
+            letter-spacing: -0.01em;
+        }
+        .project-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .project-stars {
+            display: inline-block;
+            font-size: 0.7rem;
+            color: #F59E0B;
+            margin-top: 4px;
+        }
+
+        /* ── Skills ─────────────────────────── */
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .skill-category h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            font-size: 0.76rem;
+            font-weight: 500;
+            border-radius: 16px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .skill-tag.hard {
+            background: #EEF2FF;
+            color: #3B5FDF;
+            border: 1px solid #D4DDFC;
+        }
+        .skill-tag.soft {
+            background: #F0FDF4;
+            color: #2D8A4E;
+            border: 1px solid #C6EDD0;
+        }
+        .skill-tag:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ── Tech Pills ─────────────────────── */
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tech-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 7px 14px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border-radius: 20px;
+            background: #F1F5F9;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            white-space: nowrap;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+            font-size: 0.73rem;
+        }
+        .tech-pill:hover {
+            background: #E8EDF5;
+            border-color: #c5cdd9;
+            color: var(--text-primary);
+        }
+        .tech-pill i {
+            font-size: 0.7rem;
+            color: var(--accent);
+        }
+
+        /* ── Education ──────────────────────── */
+        .edu-card {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: #F8FAFC;
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            border: 1px solid var(--border-light);
+        }
+        .edu-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .edu-info h4 {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+        .edu-info p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin: 1px 0;
+        }
+
+        /* ── Links ──────────────────────────── */
+        .links-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1.5px solid var(--border);
+            color: var(--text-secondary);
+            background: #fff;
+            white-space: nowrap;
+        }
+        .link-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: var(--shadow-sm);
+            background: #FAFBFC;
+        }
+        .link-btn i {
+            font-size: 0.9rem;
+        }
+        .link-btn.github-link {
+            background: #0F172A;
+            color: #fff;
+            border-color: #0F172A;
+        }
+        .link-btn.github-link:hover {
+            background: #1E293B;
+            border-color: #1E293B;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.3);
+        }
+
+        /* ── Tooltip ────────────────────────── */
+        .tooltip-wrapper {
+            position: relative;
+            cursor: help;
+        }
+        .tooltip-wrapper .tooltip-text {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-dark);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+        }
+        .tooltip-wrapper:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* ── Toast ──────────────────────────── */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: #0F172A;
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 999;
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast i {
+            color: #38BDF8;
+        }
+
+        /* ── Scroll Reveal ──────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ─────────────────────── */
+        @media (max-width: 700px) {
+            .cv-header {
+                padding: 24px 20px 18px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .qr-wrapper {
+                align-self: flex-end;
+                margin-top: -10px;
+            }
+            .qr-wrapper img {
+                width: 70px;
+                height: 70px;
+            }
+            .header-name {
+                font-size: 1.7rem;
+            }
+            .cv-body {
+                padding: 20px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-wrapper {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .exp-header {
+                flex-direction: column;
+            }
+            .action-bar {
+                padding: 12px 16px;
+                gap: 6px;
+            }
+            .action-bar button {
+                font-size: 0.78rem;
+                padding: 7px 12px;
+            }
+        }
+        @media (max-width: 400px) {
+            .header-name {
+                font-size: 1.4rem;
+            }
+            .header-title {
+                font-size: 0.78rem;
+                padding: 4px 10px;
+            }
+            .header-contact-row {
+                gap: 8px;
+                font-size: 0.72rem;
+            }
+            .section-heading {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ── PRINT STYLES ───────────────────── */
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+                margin: 0;
+            }
+            .cv-container {
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                border: none;
+                page-break-inside: avoid;
+            }
+            .action-bar {
+                display: none !important;
+            }
+            .cv-header {
+                background: #fff;
+                border-bottom: 1.5px solid #e2e8f0;
+                padding: 20px 28px 16px;
+            }
+            .cv-body {
+                padding: 20px 28px 24px;
+            }
+            .exp-card,
+            .project-card,
+            .edu-card,
+            .skill-tag,
+            .tech-pill,
+            .link-btn {
+                box-shadow: none !important;
+                break-inside: avoid;
+            }
+            .exp-card::before {
+                background: #000;
+            }
+            .qr-wrapper {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            .section-heading::after {
+                background: #ccc;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+            @page {
+                size: A4;
+                margin: 8mm;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div id="cv">
-    <div class="left-column">
-      <img src="IMG_0285 RAMA HARRY WIDIANTO.jpg" alt="Foto Rama" />
-      <section>
-        <h2>DATA DIRI</h2>
-        <ul>
-          <li><strong>Tempat/Tanggal Lahir:</strong> Yogyakarta, 12 September 2007</li>
-          <li><strong>Jenis Kelamin:</strong> Laki-laki</li>
-          <li><strong>Kewarganegaraan:</strong> Indonesia</li>
-          <li><strong>Status:</strong> Pelajar</li>
-        </ul>
-      </section>
-      <section>
-        <h2>KONTAK</h2>
-        <ul>
-          <li>&#128222; <a href="tel:+6283198760889">+62 831 9876 0889</a></li>
-          <li>&#9993; <a href="mailto:ramaharrywidianto@gmail.com">ramaharrywidianto@gmail.com</a></li>
-          <li>&#128205; Bobok, Patalan, Jetis, Bantul</li>
-          <li>&#127760; <a href="https://ramaharrywidianto.my.id" target="_blank">ramaharrywidianto.my.id</a></li>
-        </ul>
-      </section>
-      <section>
-        <h2>KETERAMPILAN</h2>
-        <h3>Hard Skills</h3>
-        <ul>
-          <li>HTML, CSS, JavaScript</li>
-          <li>PHP, Laravel</li>
-          <li>MySQL, Database</li>
-          <li>Bootstrap, Tailwind CSS</li>
-          <li>Git, GitHub</li>
-        </ul>
-        <h3>Soft Skills</h3>
-        <ul>
-          <li>Adaptasi tim & lingkungan</li>
-          <li>Debugging & problem solving</li>
-          <li>Kreatif mencari solusi teknis</li>
-        </ul>
-        <h3>Bahasa</h3>
-        <ul>
-          <li>Indonesia (Aktif)</li>
-          <li>Inggris (Dasar)</li>
-        </ul>
-      </section>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-msg">Tersalin!</span>
     </div>
 
-    <div class="right-column">
-      <header>
-        <h1>RAMA HARRY WIDIANTO</h1>
-        <h2>FULLSTACK WEB DEVELOPER</h2>
-      </header>
+    <!-- CV Container -->
+    <div class="cv-container">
 
-      <section>
-        <h2>TENTANG SAYA</h2>
-        <p>
-          Saya siswa SMK N 1 Sanden jurusan Rekayasa Perangkat Lunak (RPL) dengan pengalaman magang 5 bulan sebagai Full Stack Web Developer Intern. Saya menguasai pengembangan web fullstack (Laravel, PHP, MySQL) serta frontend modern (HTML, CSS, JavaScript, Bootstrap, Tailwind). Saya pribadi yang disiplin, pekerja keras, dan selalu siap belajar teknologi baru. Saat ini aktif mengembangkan proyek digital dan terus meningkatkan keterampilan di bidang rekayasa perangkat lunak serta keamanan siber.
-        </p>
-      </section>
+        <!-- Action Bar (hidden on print) -->
+        <div class="action-bar no-print">
+            <button class="btn-share" onclick="copyCVLink()" title="Salin link CV">
+                <i class="fa-solid fa-share-nodes"></i> Bagikan
+            </button>
+            <button class="btn-print" onclick="window.print()" title="Cetak / Export PDF">
+                <i class="fa-solid fa-download"></i> Cetak / Export PDF
+            </button>
+        </div>
 
-      <section>
-        <h2>PENGALAMAN MAGANG</h2>
-        <p><strong>Full Stack Web Developer Intern</strong><br>
-        CV. SORAYA WORLD, Sewon, Bantul, Yogyakarta<br>
-        Juli 2025 – November 2025 (5 Bulan)</p>
-        <ul>
-          <li>Mengembangkan & memelihara aplikasi web fullstack</li>
-          <li>Frontend: HTML, CSS, JavaScript, Bootstrap, Tailwind</li>
-          <li>Backend: Laravel, PHP, MySQL</li>
-          <li>Kolaborasi tim, testing, debugging, version control (Git)</li>
-        </ul>
-      </section>
+        <!-- Header -->
+        <header class="cv-header reveal">
+            <div class="header-left">
+                <h1 class="header-name">Rama Harry Widianto</h1>
+                <span class="header-title">Junior Fullstack Web Developer | Laravel Developer</span>
+                <div class="header-contact-row">
+                    <a href="mailto:rama@ramaharrywidianto.my.id" title="Email">
+                        <i class="fa-solid fa-envelope"></i> rama@ramaharrywidianto.my.id
+                    </a>
+                    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" title="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i> +62 812-3456-7890
+                    </a>
+                    <span title="Lokasi">
+                        <i class="fa-solid fa-location-dot"></i> Yogyakarta, Indonesia
+                    </span>
+                </div>
+            </div>
+            <!-- QR Code → Portfolio -->
+            <div class="qr-wrapper tooltip-wrapper" title="Scan untuk melihat Portfolio">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://portofolio-ramaharrywidianto.ct.ws/?i=1"
+                alt="QR Code Portfolio"
+                loading="lazy"
+                width="90"
+                height="90">
+                <div class="qr-label">Portfolio</div>
+                <span class="tooltip-text">Scan QR → Portfolio Saya</span>
+            </div>
+        </header>
 
-      <section>
-        <h2>PENDIDIKAN</h2>
-        <ul>
-          <li><strong>SD N Patalan Baru</strong> – 2014–2020</li>
-          <li><strong>SMP N 3 Jetis</strong> – 2020–2023</li>
-          <li><strong>SMK N 1 Sanden</strong> (Rekayasa Perangkat Lunak) – 2023–2026</li>
-        </ul>
-      </section>
+        <!-- Body -->
+        <main class="cv-body">
 
-      <section>
-        <h2>PORTOFOLIO</h2>
-        <a href="https://portofolio-ramaharrywidianto.ct.ws/?i=1" target="_blank">Klik untuk lihat portofolio lengkap</a>
-      </section>
+            <!-- Tentang Saya -->
+            <section class="section reveal">
+                <h2 class="section-heading">
+                    <i class="fa-solid fa-user"></i> Tentang Saya
+                </h2>
+                <p class="about-text">
+                    Saya adalah lulusan <strong>SMK Negeri 1 Sanden</strong> Program Keahlian
+                    <strong>Rekayasa Perangkat Lunak (RPL)</strong> dengan pengalaman
+                    <strong>Praktik Kerja Lapangan (PKL) selama 5 bulan</strong> sebagai
+                    <strong>Fullstack Web Developer Intern</strong> di <strong>CV. Soraya World</strong>.
+                    Saya memiliki pengalaman mengembangkan aplikasi berbasis
+                    <strong>Laravel, PHP, MySQL, JavaScript, Bootstrap, dan Tailwind CSS</strong>
+                    mulai dari analisis kebutuhan, implementasi fitur, hingga proses debugging dan deployment.
+                    Saya memiliki semangat belajar yang tinggi, mampu bekerja secara mandiri maupun dalam tim,
+                    serta terus mengembangkan kemampuan di bidang <strong>Fullstack Development</strong>,
+                    <strong>Cybersecurity</strong>, dan <strong>Linux Server</strong>.
+                </p>
+            </section>
 
-      <section>
-        <h2>PROYEK UNGGULAN</h2>
-        <ul>
-          <li><strong>Website CRUD Absensi</strong> – HTML, Bootstrap, PHP, CSS, JS</li>
-          <li><strong>Website Rental Mobil</strong> – HTML, Bootstrap, PHP, CSS, JS</li>
-          <li><strong>Konter HP</strong> – HTML, Bootstrap, PHP, CSS, JS, Laravel</li>
-          <li><strong>Sistem Sign Up & Sign In</strong> – HTML, Bootstrap, PHP, CSS, JS, Laravel</li>
-          <li><strong>Panel Admin LTE</strong> – HTML, Bootstrap, PHP, CSS, JS, Laravel</li>
-          <li><strong>Website Profil Sekolah</strong> – Informasi akademik dinamis</li>
-          <li><strong>Sistem Kasir UMKM</strong> – Manajemen transaksi & stok</li>
-          <li><strong>Aplikasi Perpustakaan</strong> – Manajemen buku & sirkulasi</li>
-        </ul>
-      </section>
+            <!-- Pengalaman -->
+            <section class="section reveal">
+                <h2 class="section-heading">
+                    <i class="fa-solid fa-briefcase"></i> Pengalaman
+                </h2>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Fullstack Web Developer Intern</div>
+                            <div class="exp-company">CV. Soraya World</div>
+                        </div>
+                        <span class="exp-date">Juli 2025 – November 2025</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Mengembangkan aplikasi berbasis Laravel</li>
+                        <li>Mendesain database MySQL</li>
+                        <li>Membuat fitur CRUD</li>
+                        <li>Membuat autentikasi Login</li>
+                        <li>Melakukan debugging aplikasi</li>
+                        <li>Mengelola source code menggunakan Git</li>
+                        <li>Membantu deployment aplikasi ke server</li>
+                        <li>Berkolaborasi dengan mentor dan tim</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Project -->
+            <section class="section reveal">
+                <h2 class="section-heading">
+                    <i class="fa-solid fa-code"></i> Project
+                </h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-name">📋 Buku Tamu Digital</div>
+                        <div class="project-tech">Laravel • PHP • MySQL</div>
+                        <div class="project-desc">Aplikasi pencatatan tamu berbasis web dengan fitur CRUD, pencarian data, autentikasi, dan dashboard admin.</div>
+                        <div class="project-stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-name">📦 Sistem Stock Barang</div>
+                        <div class="project-tech">Laravel • PHP • MySQL</div>
+                        <div class="project-desc">Aplikasi manajemen stok barang untuk mencatat barang masuk, barang keluar, dan laporan stok.</div>
+                        <div class="project-stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-name">🗄️ Inventory Management</div>
+                        <div class="project-tech">Laravel</div>
+                        <div class="project-desc">Sistem inventaris berbasis web untuk mengelola data inventaris perusahaan.</div>
+                        <div class="project-stars">⭐⭐⭐⭐</div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-name">⚛️ Tes Magang React + Vite</div>
+                        <div class="project-tech">React • Vite</div>
+                        <div class="project-desc">Project hasil seleksi magang menggunakan React dan Vite.</div>
+                        <div class="project-stars">⭐⭐⭐⭐</div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <div class="project-name">🌐 My Portfolio</div>
+                        <div class="project-tech">HTML • CSS • JavaScript</div>
+                        <div class="project-desc">Website portfolio pribadi yang menampilkan proyek dan keterampilan.</div>
+                        <div class="project-stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <!-- Project 6 -->
+                    <div class="project-card">
+                        <div class="project-name">📄 My Resume</div>
+                        <div class="project-tech">HTML • CSS • JavaScript</div>
+                        <div class="project-desc">CV digital interaktif yang siap di-export ke PDF.</div>
+                        <div class="project-stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <!-- Project 7 -->
+                    <div class="project-card">
+                        <div class="project-name">🚀 Astro Platform Starter</div>
+                        <div class="project-tech">Astro</div>
+                        <div class="project-desc">Starter template sebagai media eksplorasi framework Astro.</div>
+                        <div class="project-stars">⭐⭐⭐</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section class="section reveal">
+                <h2 class="section-heading">
+                    <i class="fa-solid fa-gears"></i> Skill
+                </h2>
+                <div class="skills-wrapper">
+                    <!-- Hard Skill -->
+                    <div class="skill-category">
+                        <h4>🛠 Hard Skill</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag hard">HTML5</span>
+                            <span class="skill-tag hard">CSS3</span>
+                            <span class="skill-tag hard">JavaScript (ES6)</span>
+                            <span class="skill-tag hard">PHP</span>
+                            <span class="skill-tag hard">Laravel</span>
+                            <span class="skill-tag hard">MySQL</span>
+                            <span class="skill-tag hard">Bootstrap</span>
+                            <span class="skill-tag hard">Tailwind CSS</span>
+                            <span class="skill-tag hard">Git</span>
+                            <span class="skill-tag hard">GitHub</span>
+                            <span class="skill-tag hard">REST API</span>
+                            <span class="skill-tag hard">Linux</span>
+                            <span class="skill-tag hard">Docker (Basic)</span>
+                            <span class="skill-tag hard">Figma</span>
+                            <span class="skill-tag hard">VS Code</span>
+                        </div>
+                    </div>
+                    <!-- Soft Skill -->
+                    <div class="skill-category">
+                        <h4>🤝 Soft Skill</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag soft">Problem Solving</span>
+                            <span class="skill-tag soft">Critical Thinking</span>
+                            <span class="skill-tag soft">Communication</span>
+                            <span class="skill-tag soft">Team Collaboration</span>
+                            <span class="skill-tag soft">Adaptability</span>
+                            <span class="skill-tag soft">Time Management</span>
+                            <span class="skill-tag soft">Fast Learner</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Teknologi -->
+            <section class="section reveal">
+                <h2 class="section-heading">
+                    <i class="fa-solid fa-microchip"></i> Teknologi
+                </h2>
+                <div class="tech-pills">
+                    <span class="tech-pill"><i class="fa-brands fa-laravel"></i> Laravel</span>
+                    <span class="tech-pill"><i class="fa-brands fa-php"></i> PHP</span>
+                    <span class="tech-pill"><i class="fa-solid fa-database"></i> MySQL</span>
+                    <span class="tech-pill"><i class="fa-brands fa-html5"></i> HTML</span>
+                    <span class="tech-pill"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                    <span class="tech-pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+                    <span class="tech-pill"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+                    <span class="tech-pill"><i class="fa-solid fa-wind"></i> Tailwind CSS</span>
+                    <span class="tech-pill"><i class="fa-brands fa-git-alt"></i> Git</span>
+                    <span class="tech-pill"><i class="fa-brands fa-github"></i> GitHub</span>
+                    <span class="tech-pill"><i class="fa-brands fa-linux"></i> Linux</span>
+                </div>
+            </section>
+
+            <!-- Pendidikan -->
+            <section class="section reveal">
+                <h2 class="section-heading">
+                    <i class="fa-solid fa-graduation-cap"></i> Pendidikan
+                </h2>
+                <div class="edu-card">
+                    <div class="edu-icon">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <div class="edu-info">
+                        <h4>SMK Negeri 1 Sanden</h4>
+                        <p>Rekayasa Perangkat Lunak (RPL)</p>
+                        <p style="font-size:0.78rem;color:#94A3B8;">2022 – 2025</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Links -->
+            <section class="section reveal">
+                <h2 class="section-heading">
+                    <i class="fa-solid fa-link"></i> Tautan
+                </h2>
+                <div class="links-row">
+                    <a href="https://ramaharrywidianto.my.id" target="_blank" rel="noopener" class="link-btn">
+                        <i class="fa-solid fa-globe"></i> Website
+                    </a>
+                    <a href="https://portofolio-ramaharrywidianto.ct.ws/?i=1" target="_blank" rel="noopener" class="link-btn">
+                        <i class="fa-solid fa-folder-open"></i> Portfolio
+                    </a>
+                    <a href="https://github.com/ramaharrywidianto" target="_blank" rel="noopener" class="link-btn github-link">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="mailto:rama@ramaharrywidianto.my.id" class="link-btn">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </a>
+                </div>
+            </section>
+
+        </main>
     </div>
-  </div>
 
-  <button onclick="downloadPDF()">Download PDF</button>
+    <script>
+        // ── Toast ──────────────────────────────
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-msg');
+            msg.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2200);
+        }
 
-  <script>
-    function downloadPDF() {
-      const element = document.getElementById('cv');
-      const opt = {
-        margin: [0, 0, 0, 0],
-        filename: 'CV_Rama_Harry_Widianto.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-      html2pdf().set(opt).from(element).save();
-    }
-  </script>
+        // ── Copy CV Link ──────────────────────
+        function copyCVLink() {
+            const url = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    showToast('🔗 Link CV berhasil disalin!');
+                }).catch(() => {
+                    fallbackCopy(url);
+                });
+            } else {
+                fallbackCopy(url);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            ta.style.top = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            try {
+                document.execCommand('copy');
+                showToast('🔗 Link CV berhasil disalin!');
+            } catch (e) {
+                showToast('⚠️ Gagal menyalin, silakan salin manual.');
+            }
+            document.body.removeChild(ta);
+        }
+
+        // ── Scroll Reveal ─────────────────────
+        const revealElements = document.querySelectorAll('.reveal');
+
+        function checkReveal() {
+            const windowHeight = window.innerHeight;
+            const triggerPoint = windowHeight * 0.88;
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const top = rect.top;
+                if (top < triggerPoint) {
+                    el.classList.add('visible');
+                }
+            });
+            // Handle any remaining hidden elements (e.g., after rapid scroll)
+            const allVisible = document.querySelectorAll('.reveal:not(.visible)');
+            if (allVisible.length === 0 && revealElements.length > 0) {
+                // All revealed
+            }
+        }
+
+        // Initial check + reveal header immediately
+        window.addEventListener('DOMContentLoaded', () => {
+            // Reveal first few elements immediately for better UX
+            const firstBatch = document.querySelectorAll('.cv-header.reveal, .cv-body .section.reveal:nth-child(-n+2)');
+            firstBatch.forEach(el => el.classList.add('visible'));
+            checkReveal();
+        });
+
+        // Throttled scroll listener
+        let scrollTicking = false;
+        window.addEventListener('scroll', () => {
+            if (!scrollTicking) {
+                requestAnimationFrame(() => {
+                    checkReveal();
+                    scrollTicking = false;
+                });
+                scrollTicking = true;
+            }
+        });
+
+        // Also check on resize
+        window.addEventListener('resize', checkReveal);
+
+        // Final check after a short delay (for slow-loading images like QR)
+        setTimeout(checkReveal, 800);
+        setTimeout(checkReveal, 2000);
+    </script>
+
 </body>
 </html>
